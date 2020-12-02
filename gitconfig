@@ -1,9 +1,10 @@
 [user]
-  email = Yannick.LeRoux@technicolor.com
+  email = yleroux@ateme.com
   name = Yannick Le Roux
 
 [core]
-  editor = vim
+  editor       = vim
+  excludesFile = ~/gitignore
   #autocrlf = input
   #safecrlf = warn
 
@@ -28,6 +29,7 @@
   la    = log --graph --decorate --oneline --all
   l1    = log --all --decorate -n 1
   lr    = log --oneline --decorate --left-right --graph
+  lf    = log --pretty=fuller
   r1    = reset --hard HEAD^
   bad   = bisect bad
   good  = bisect good
@@ -36,6 +38,7 @@
   assume    = update-index --assume-unchanged
   no-assume = update-index --no-assume-unchanged
   assumed   = !git ls-files -v | grep "^[[:lower:]]"
+  betonniere = commit --amend --author="betonniere <bellepoule.dev@free.fr>"
 
 [branch]
   autosetupmerge  = always
@@ -71,3 +74,5 @@
 
 [includeIf "gitdir:~/Project/"]
   path = ~/Project/.gitconfig
+[includeIf "gitdir:~/Perso/"]
+  path = ~/Perso/.gitconfig

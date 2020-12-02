@@ -1,5 +1,5 @@
-:set guifont=Monospace\ 10
 :set guifont=Courier\ 10\ Pitch
+:set guifont=Monospace\ 10
 :set encoding=utf-8
 :set fileencoding=utf-8
 
@@ -164,6 +164,7 @@ endif
 "" document
 ":set asm=0              " don't show any assembly stuff
 ":set gdbprg=/local/work/lerouxy/host/usr/bin/gdb
+:packadd termdebug
 
 "------------------------------------------------------------------------------------------
 " redraw current at window top    ==> F1
@@ -224,7 +225,8 @@ function! ToggleComment ()
   endif
 endfun
 
-nmap <F7> :call ToggleComment ()j
+nmap <F7> :call ToggleComment ()
+j
 
 "------------------------------------------------------------------------------------------
 " .
@@ -277,4 +279,8 @@ let g:syntastic_mode_map = {
     \ "active_filetypes": ["cpp", "hpp"],
     \ "passive_filetypes": [] }
 
-colorscheme morning
+"colorscheme morning
+
+" 
+:set noendofline
+:set nofixendofline

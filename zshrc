@@ -1,39 +1,30 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+#export PATH="$HOME/Project/Cross/Osxcross/target/bin:$PATH"
+#export PATH="$HOME/Project/Cross/Osxcross/build/cctools-895-ld64-274.2_8e9c3f2/cctools/misc:$PATH"
+#export PATH="$HOME/Project/Cross/Osxcross/build/cctools-port/cctools/otool:$PATH"
+#export MACOSX_DEPLOYMENT_TARGET=10.6
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="yannick"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -45,7 +36,7 @@ CASE_SENSITIVE="true"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -54,23 +45,46 @@ CASE_SENSITIVE="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(vi-mode)
+plugins+=(history)
+plugins+=(zsh-navigation-tools)
+plugins+=(colored-man-pages)
 
 source $ZSH/oh-my-zsh.sh
+
+# PATH
+#pathmunge () {
+#    case ":${PATH}:" in
+#        *:"$1":*)
+#            ;;
+#        *)
+#            [ ! -d "$1" ] && return
+#            if [ "$2" = "after" ] ; then
+#                PATH=$PATH:$1
+#            else
+#                PATH=$1:$PATH
+#            fi
+#    esac
+#}
+#
+#export WORKSPACE=/home/lerouxy/work
+#export LD_LIBRARY_PATH=/usr/local/lib
+#
+#pathmunge $HOME/bin                                                  before
+#pathmunge $HOME/Android/Sdk/tools                                    before
+#pathmunge $HOME/Android/Sdk/platform-tools                           before
+#pathmunge $HOME/Android/Sdk/build-tools/27.0.3                       before
+#pathmunge $WORKSPACE/SRC/tools/hudson/hudson_scripts/android_scripts before
 
 # User configuration
 
@@ -97,3 +111,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias y2j='python3 -c '\''import sys, yaml, json; y=yaml.load(sys.stdin.read()); print(json.dumps(y, indent=2))'\'''
+alias j2y='python3 -c '\''import sys, yaml, json; j=json.loads(sys.stdin.read()); print(yaml.safe_dump(j))'\'''
+
+export ATEMELIB=$HOME/Ateme
+export ATEMENAME=yleroux
+export SCHROOT_CHROOT_IMAGE=buster-amd64-v3.tar.bz2
+export PYTHONPATH=$HOME/Work/test-framework/src
