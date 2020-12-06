@@ -1,5 +1,5 @@
-:set guifont=Courier\ 10\ Pitch
-:set guifont=Monospace\ 10
+":set guifont=Courier\ 10\ Pitch
+":set guifont=Monospace\ 10
 :set encoding=utf-8
 :set fileencoding=utf-8
 
@@ -164,13 +164,15 @@ endif
 "" document
 ":set asm=0              " don't show any assembly stuff
 ":set gdbprg=/local/work/lerouxy/host/usr/bin/gdb
-:packadd termdebug
+if v:version >= 800
+  :packadd termdebug
+endif
 
 "------------------------------------------------------------------------------------------
 " redraw current at window top    ==> F1
 " redraw current at window center ==> F2
 " redraw current at window bottom ==> F3
-nmap <F1> z
+nmap <F1> z<CR>
 nmap <F2> z.
 nmap <F3> z-
 

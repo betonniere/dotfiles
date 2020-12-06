@@ -59,6 +59,7 @@ plugins=(vi-mode)
 plugins+=(history)
 plugins+=(zsh-navigation-tools)
 plugins+=(colored-man-pages)
+plugins+=(git-open)
 
 source $ZSH/oh-my-zsh.sh
 
