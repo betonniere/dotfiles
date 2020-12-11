@@ -158,12 +158,6 @@ endif
 
 "------------------------------------------------------------------------------------------
 "gdb
-":syntax enable          " enable syntax highlighting
-":set previewheight=12   " set gdb console initial height
-":run macros/gdb_mappings.vim  " source key mappings listed in this
-"" document
-":set asm=0              " don't show any assembly stuff
-":set gdbprg=/local/work/lerouxy/host/usr/bin/gdb
 if v:version >= 800
   :packadd termdebug
 endif
@@ -194,24 +188,10 @@ function! ToggleLineNumbering ()
   endif
 endfun
 
-nmap <F5> :call ToggleLineNumbering ()
+nmap <F5> :call ToggleLineNumbering ()<CR>
 
 "------------------------------------------------------------------------------------------
-" Folder ==> F6
-function! ToggleFoldEnable ()
-  if &foldenable
-    set nofoldenable
-  else
-    set foldenable
-  endif
-endfun
-
-set foldmethod=indent
-set nofoldenable
-nmap <F6> :call ToggleFoldEnable ()
-
-"------------------------------------------------------------------------------------------
-" comment ==> F7
+" comment ==> F6
 function! ToggleComment ()
   let line_number  = line(".")
   let current_line = getline (".")
@@ -227,7 +207,7 @@ function! ToggleComment ()
   endif
 endfun
 
-nmap <F7> :call ToggleComment ()
+nmap <F6> :call ToggleComment ()<CR>
 j
 
 "------------------------------------------------------------------------------------------
@@ -253,17 +233,6 @@ set shiftwidth=2  "Number of spaces to use for each step of (auto)indent"
 autocmd BufReadPost * if line("'\"") | exe "normal '\"" | endif
 
 "------------------------------------------------------------------------------------------
-abbreviate mNoir   \e[1;30m
-abbreviate mRouge  \e[1;31m
-abbreviate mVert   \e[1;32m
-abbreviate mJaune  \e[1;33m
-abbreviate mBleu   \e[1;34m
-abbreviate mViolet \e[1;35m
-abbreviate mBleu   \e[1;36m
-abbreviate mBlanc  \e[1;37m
-abbreviate mNorm   \e[0m
-
-"------------------------------------------------------------------------------------------
 execute pathogen#infect()
 execute pathogen#helptags()
 
@@ -281,7 +250,7 @@ let g:syntastic_mode_map = {
     \ "active_filetypes": ["cpp", "hpp"],
     \ "passive_filetypes": [] }
 
-"colorscheme morning
+colorscheme morning
 
 " 
 :set noendofline
