@@ -226,7 +226,7 @@ set incsearch
 "set highlight=8r,db,es,hs,mb,Mr,nb,rs,sr,tb,vr,wi
 set expandtab     "Tab == space
 set tabstop=2
-set shiftwidth=2  "Number of spaces to use for each step of (auto)indent"
+set shiftwidth=3  "Number of spaces to use for each step of (auto)indent"
 
 "------------------------------------------------------------------------------------------
 "jumps to the last known position in a file
