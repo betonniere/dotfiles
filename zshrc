@@ -63,30 +63,6 @@ plugins+=(git-open)
 
 source $ZSH/oh-my-zsh.sh
 
-# PATH
-#pathmunge () {
-#    case ":${PATH}:" in
-#        *:"$1":*)
-#            ;;
-#        *)
-#            [ ! -d "$1" ] && return
-#            if [ "$2" = "after" ] ; then
-#                PATH=$PATH:$1
-#            else
-#                PATH=$1:$PATH
-#            fi
-#    esac
-#}
-#
-#export WORKSPACE=/home/lerouxy/work
-#export LD_LIBRARY_PATH=/usr/local/lib
-#
-#pathmunge $HOME/bin                                                  before
-#pathmunge $HOME/Android/Sdk/tools                                    before
-#pathmunge $HOME/Android/Sdk/platform-tools                           before
-#pathmunge $HOME/Android/Sdk/build-tools/27.0.3                       before
-#pathmunge $WORKSPACE/SRC/tools/hudson/hudson_scripts/android_scripts before
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -116,7 +92,7 @@ source $ZSH/oh-my-zsh.sh
 alias y2j='python3 -c '\''import sys, yaml, json; y=yaml.load(sys.stdin.read()); print(json.dumps(y, indent=2))'\'''
 alias j2y='python3 -c '\''import sys, yaml, json; j=json.loads(sys.stdin.read()); print(yaml.safe_dump(j))'\'''
 
-export ATEMELIB=$HOME/Ateme
+export ATEMELIB=$HOME/Work/Ateme
 export ATEMENAME=yleroux
 export SCHROOT_CHROOT_IMAGE=buster-amd64-v3.tar.bz2
 export PYTHONPATH=$HOME/Work/test-framework/src

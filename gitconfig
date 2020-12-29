@@ -72,8 +72,6 @@
 [status]
   submoduleSummary = true
 
-[includeIf "gitdir:~/Project/"]
-  path = ~/Project/.gitconfig
 [includeIf "gitdir:~/Work/"]
   path = ~/Work/.gitconfig
 [includeIf "gitdir:~/Perso/"]
