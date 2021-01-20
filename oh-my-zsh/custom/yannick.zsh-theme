@@ -107,4 +107,4 @@ ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg_bold[cyan]%}%{↑%G%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg_bold[red]%}%{⚑ %G%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-PROMPT='%{$fg_bold[blue]%}%M%{$fg_bold[green]%}:%{$fg_bold[blue]%}%C%{$reset_color%}$(git_super_status)%{$reset_color%}: '
+PROMPT='🖥️  $fg_bold[blue]%}%C%{$reset_color%}$(git_super_status)%{$reset_color%}: '
