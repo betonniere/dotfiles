@@ -95,6 +95,12 @@ git_super_status() {
 }
 
 # Default values for the appearance of the prompt. Configure at will.
+if [[ $(w --no-header yannick | wc -l) -eq 1 ]]; then
+   ICON="🖥️ "
+else
+   ICON="🚧"
+fi
+
 ZSH_THEME_GIT_PROMPT_PREFIX="➜ ("
 ZSH_THEME_GIT_PROMPT_SUFFIX=")"
 ZSH_THEME_GIT_PROMPT_SEPARATOR=""
@@ -107,4 +113,4 @@ ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg_bold[cyan]%}%{↑%G%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg_bold[red]%}%{⚑ %G%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-PROMPT='🖥️  $fg_bold[blue]%}%C%{$reset_color%}$(git_super_status)%{$reset_color%}: '
+PROMPT=$ICON' $fg_bold[blue]%}%C%{$reset_color%}$(git_super_status)%{$reset_color%}: '
