@@ -8,6 +8,7 @@
 "------------------------------------------------------------------------------------------
 set nobackup
 set modeline
+set nocompatible
 
 "------------------------------------------------------------------------------------------
 set guitablabel=%m\ %t
@@ -237,21 +238,44 @@ execute pathogen#infect()
 execute pathogen#helptags()
 
 "- Syntastic ------------------------------------------------------------------------------
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_cpp_config_file = ".syntastic.config"
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = {
-    \ "mode": "passive",
-    \ "active_filetypes": ["cpp", "hpp"],
-    \ "passive_filetypes": [] }
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_cpp_config_file = ".syntastic.config"
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_mode_map = {
+    "\ "mode": "passive",
+    "\ "active_filetypes": ["cpp", "hpp"],
+    "\ "passive_filetypes": [] }
 
 colorscheme morning
 
-" 
+"- Ale / Airline --------------------------------------------------------------------------
+let g:airline#extensions#ale#enabled = 1
+let g:ale_enabled = 1
+let g:ale_lint_on_enter = 1
+let g:ale_completion_enabled = 1
+let g:ale_open_list = 1
+let g:ale_sign_error = '💣 '
+let g:ale_sign_warning = '🚧 '
+nnoremap <C-RightMouse> :ALEGoToDefinition -tab<CR>
+nnoremap <C-LeftMouse> :ALEGoToDefinition<CR>
+nmap gd :ALEGoToDefinition<CR>
+nmap gt :ALEGoToDefinition -tab<CR>
+nmap gr :ALEFindReferences<CR>
+
+"
 :set noendofline
 :set nofixendofline
+
+" Put these lines at the very end of your vimrc file.
+"
+" Load all plugins now.
+" Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL
