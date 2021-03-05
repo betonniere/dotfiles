@@ -253,14 +253,20 @@ execute pathogen#helptags()
 
 colorscheme morning
 
-"- Ale / Airline --------------------------------------------------------------------------
-let g:airline#extensions#ale#enabled = 1
-let g:ale_enabled = 1
-let g:ale_lint_on_enter = 1
+"- Airline --------------------------------------------------------------------------------
+let g:airline#extensions#ale#enabled    = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline_theme           = 'wombat'
+let g:airline_powerline_fonts = 1
+
+"- Ale ------------------------------------------------------------------------------------
+let g:ale_enabled            = 1
+let g:ale_lint_on_enter      = 1
 let g:ale_completion_enabled = 1
-let g:ale_open_list = 1
-let g:ale_sign_error = '💣 '
-let g:ale_sign_warning = '🚧 '
+let g:ale_open_list          = 1
+let g:ale_list_window_size   = 1
+let g:ale_sign_error         = '💣 '
+let g:ale_sign_warning       = '🚧 '
 nnoremap <C-RightMouse> :ALEGoToDefinition -tab<CR>
 nnoremap <C-LeftMouse> :ALEGoToDefinition<CR>
 nmap gd :ALEGoToDefinition<CR>
