@@ -1,0 +1,82 @@
+[user]
+  email = y.leroux@ateme.com
+  name = Yannick Le Roux
+
+[core]
+  editor       = vim
+  excludesFile = ~/gitignore
+  #autocrlf = input
+  #safecrlf = warn
+
+[color]
+  ui = auto
+
+[alias]
+  co    = checkout
+  ci    = commit
+  st    = status
+  rem   = remote -v
+  aa    = add --all
+  dt    = difftool
+  mt    = mergetool
+  dno   = diff --name-only
+  sno   = show --name-only
+  ls    = ls-files
+  #lg  = log --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  lg    = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  lga   = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all
+  lo    = log --graph --decorate --oneline
+  la    = log --graph --decorate --oneline --all
+  l1    = log --all --decorate -n 1
+  lr    = log --oneline --decorate --left-right --graph
+  lf    = log --pretty=fuller
+  r1    = reset --hard HEAD^
+  bad   = bisect bad
+  good  = bisect good
+  hist  = reflog show
+  stamp = commit --amend --reset-author --no-edit
+  assume    = update-index --assume-unchanged
+  no-assume = update-index --no-assume-unchanged
+  assumed   = !git ls-files -v | grep "^[[:lower:]]"
+
+[branch]
+  autosetupmerge  = always
+  autosetuprebase = always
+
+[diff]
+  tool = meld
+  mnemonicPrefix = true
+
+[difftool]
+  prompt = false
+
+[merge]
+  tool = meld
+  log  = 20
+  ff   = false
+
+[mergetool]
+  prompt     = false
+  keepBackup = false
+
+[pull]
+  rebase = true
+
+[push]
+  default = simple
+
+[rebase]
+  autosquash = true
+
+[status]
+  submoduleSummary = true
+
+[fetch]
+  prune = true
+
+[includeIf "gitdir:~/Work/"]
+  path = ~/Work/.gitconfig
+[includeIf "gitdir:~/.config/"]
+  path = ~/Perso/.gitconfig
+[includeIf "gitdir:~/Perso/"]
+  path = ~/Perso/.gitconfig

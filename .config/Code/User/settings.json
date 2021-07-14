@@ -1,0 +1,13 @@
+{
+    "workbench.colorTheme": "Visual Studio Light",
+    "C_Cpp.updateChannel": "Insiders",
+    "TP_WORKING_DIRECTORY": "/home/yannick/Work",
+    "ATEME_TARGET_LIBRARY_PATH": "/home/yannick/Work/Ateme/x64-buster/bin",   // → répertoire contenant les libs ateme sur le remote
+    "ATEME_LOCAL_LIBRARY_PATH": "/home/yannick/Work/Ateme/x64-buster/bin",    // → répertoire les libs ateme en local
+    "TITAN_TARGET_NAME": "titan_yannick",                                     // → prefix des liens symboliques de TP a setter lors d'un "copy to remote"
+    "DEFAULT_PIPELINE": "source",                                             // → nom du pipeline par défaut à utiliser pour les updates/start/stop/restart
+    "TITAN_DEFAULT_EXECUTABLE": "TitanProcessingMain",                        // → éxecutable par defaut pour à utiliser
+    "TITAN_DEFAULT_PORT": "3583",                                             // → port par défaut à utiliser pour TP
+    "TITAN_DEFAULT_REMOTE": "megumi",                                         // → remote par défaut à utiliser
+    "LLDB_DEFAULT_PORT": "2348"                                               // → port par défaut à utiliser pour lldb-server
+}

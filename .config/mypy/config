@@ -1,0 +1,8 @@
+[mypy-pytest_testrail.plugin]
+ignore_missing_imports = True
+
+[mypy-framework]
+ignore_missing_imports = True
+
+[mypy-gi.*]
+ignore_missing_imports = True

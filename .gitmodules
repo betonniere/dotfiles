@@ -1,0 +1,18 @@
+[submodule ".vim/pack/git-plugins/start/ale"]
+	path = .vim/pack/git-plugins/start/ale
+	url = https://github.com/dense-analysis/ale.git
+[submodule ".vim/pack/git-plugins/start/vim-airline"]
+	path = .vim/pack/git-plugins/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule ".vim/pack/git-plugins/start/vim-airline-themes"]
+	path = .vim/pack/git-plugins/start/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
+[submodule ".oh-my-zsh.custom/plugins/git-open"]
+	path = .oh-my-zsh.custom/plugins/git-open
+	url = https://github.com/paulirish/git-open.git
+[submodule ".oh-my-zsh.custom/zsh-git-prompt"]
+	path = .oh-my-zsh.custom/zsh-git-prompt
+	url = https://github.com/olivierverdier/zsh-git-prompt.git
+[submodule ".vim/pack/git-plugins/start/syntastic"]
+	path = .vim/pack/git-plugins/start/syntastic
+	url = https://github.com/vim-syntastic/syntastic.git
