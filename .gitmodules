@@ -13,6 +13,3 @@
 [submodule ".oh-my-zsh.custom/zsh-git-prompt"]
 	path = .oh-my-zsh.custom/zsh-git-prompt
 	url = https://github.com/olivierverdier/zsh-git-prompt.git
-[submodule ".vim/pack/git-plugins/start/syntastic"]
-	path = .vim/pack/git-plugins/start/syntastic
-	url = https://github.com/vim-syntastic/syntastic.git
