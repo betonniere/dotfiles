@@ -9,5 +9,7 @@
     "TITAN_DEFAULT_EXECUTABLE": "TitanProcessingMain",                        // → éxecutable par defaut pour à utiliser
     "TITAN_DEFAULT_PORT": "3583",                                             // → port par défaut à utiliser pour TP
     "TITAN_DEFAULT_REMOTE": "megumi",                                         // → remote par défaut à utiliser
-    "LLDB_DEFAULT_PORT": "2348"                                               // → port par défaut à utiliser pour lldb-server
+    "LLDB_DEFAULT_PORT": "2348",                                              // → port par défaut à utiliser pour lldb-server
+    "PIPELINE_DEFAULT": "/home/yannick/pipeline.yaml",
+    "security.workspace.trust.untrustedFiles": "open" // → port par défaut à utiliser pour lldb-server
 }
