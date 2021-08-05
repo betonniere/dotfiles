@@ -68,7 +68,7 @@
   autosquash = true
 
 [status]
-  submoduleSummary = true
+  submoduleSummary = false
 
 [fetch]
   prune = true
