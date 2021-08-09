@@ -97,6 +97,12 @@ git_super_status() {
 # Default values for the appearance of the prompt. Configure at will.
 if [[ $(hostname) == "yannick-OptiPlex-7070" ]]; then
    ICON="🍋"
+elif [[ $(hostname) == "megumi" ]]; then
+   ICON="🍎"
+elif [[ $(hostname) == "misaki" ]]; then
+   ICON="🍉"
+elif [[ $(hostname) == "madoka" ]]; then
+   ICON="🍓"
 elif [[ $(hostname) == "yannick-Laptop" ]]; then
    ICON="🥾"
 else
