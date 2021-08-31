@@ -1,0 +1,7 @@
+[user]
+  email = 19312150+betonniere@users.noreply.github.com
+  name = betonniere
+  signingkey = 32A24597353AA857C02C0E9D0E6CA8BD7C1265A8
+
+[commit]
+  gpgsign = true
