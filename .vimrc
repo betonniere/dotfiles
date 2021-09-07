@@ -230,5 +230,5 @@ nmap gt :ALEGoToDefinition -tab<CR>
 nmap gr :ALEFindReferences<CR>
 
 "
-:set noendofline
-:set nofixendofline
+set noendofline
+set nofixendofline
