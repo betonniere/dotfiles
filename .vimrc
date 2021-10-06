@@ -82,11 +82,11 @@ command -nargs=1 Fgall call Grep("fgall", <f-args>)
 augroup Binary
   au!
   au BufReadPre   *.bin,*ttf,*TTF let &bin=1
-  au BufReadPost  *.bin,*ttf,*TTF if &bin | %!/home/lerouxy/local/bin/xxd
+  au BufReadPost  *.bin,*ttf,*TTF if &bin | %!xxd
   au BufReadPost  *.bin,*ttf,*TTF set ft=xxd | endif
-  au BufWritePre  *.bin,*ttf,*TTF if &bin | %!/home/lerouxy/local/bin/xxd -r
+  au BufWritePre  *.bin,*ttf,*TTF if &bin | %!xxd -r
   au BufWritePre  *.bin,*ttf,*TTF endif
-  au BufWritePost *.bin,*ttf,*TTF if &bin | %!/home/lerouxy/local/bin/xxd
+  au BufWritePost *.bin,*ttf,*TTF if &bin | %!xxd
   au BufWritePost *.bin,*ttf,*TTF set nomod | endif
 augroup END
 
