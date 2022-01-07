@@ -166,24 +166,44 @@ endfun
 nmap <F5> :call ToggleLineNumbering ()<CR>
 
 "------------------------------------------------------------------------------------------
-" comment ==> F6
-function! ToggleComment ()
-  let line_number  = line(".")
-  let current_line = getline (".")
-
-  let start_comment = matchend (current_line, '/\* ')
-  let end_comment   = match (current_line, ' \*\/$')
-  if ((start_comment == -1) || (end_comment == -1))
-    let new_line = "/\* " . current_line . " \*\/"
-    call setline (line_number, new_line)
+" hexadecimal 2 decimal ==> F6
+command! -nargs=? -range H2D call s:H2D(<line1>, <line2>, '<args>')
+function! s:H2D(line1, line2, arg) range
+  if empty(a:arg)
+    if histget(':', -1) =~# "^'<,'>" && visualmode() !=# 'V'
+      let cmd = 's/\%V0x\x\+/\=submatch(0)+0/g'
+    else
+      let cmd = 's/0x\x\+/\=submatch(0)+0/g'
+    endif
+    try
+      execute a:line1 . ',' . a:line2 . cmd
+    catch
+      echo 'Error: No hex number starting "0x" found'
+    endtry
   else
-    let new_line = strpart (current_line, start_comment, end_comment - start_comment)
-    call setline (line_number, new_line)
+    echo (a:arg =~? '^0x') ? a:arg + 0 : ('0x'.a:arg) + 0
   endif
-endfun
+endfunction
 
-nmap <F6> :call ToggleComment ()<CR>
-j
+"------------------------------------------------------------------------------------------
+" decimal 2 hexadecimal ==> F6
+command! -nargs=? -range D2H call s:D2H(<line1>, <line2>, '<args>')
+function! s:D2H(line1, line2, arg) range
+  if empty(a:arg)
+    if histget(':', -1) =~# "^'<,'>" && visualmode() !=# 'V'
+      let cmd = 's/\%V\<\d\+\>/\=printf("0x%x",submatch(0)+0)/g'
+    else
+      let cmd = 's/\<\d\+\>/\=printf("0x%x",submatch(0)+0)/g'
+    endif
+    try
+      execute a:line1 . ',' . a:line2 . cmd
+    catch
+      echo 'Error: No decimal number found'
+    endtry
+  else
+    echo printf('%x', a:arg + 0)
+  endif
+endfunction
 
 "------------------------------------------------------------------------------------------
 " .
