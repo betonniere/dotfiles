@@ -103,6 +103,8 @@ elif [[ $(hostname) == "misaki" ]]; then
    ICON="🍉"
 elif [[ $(hostname) == "madoka" ]]; then
    ICON="🍓"
+elif [[ $(hostname) == "frog" ]]; then
+   ICON="🐸"
 elif [[ $(hostname) == "yannick-Laptop" ]]; then
    ICON="🥾"
 else
