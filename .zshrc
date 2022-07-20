@@ -93,7 +93,7 @@ export ATEMELIB=$HOME/Work/Ateme
 export ATEMENAME=yleroux
 export SCHROOT_CHROOT_IMAGE=buster-amd64-v3.tar.bz2
 export PYTHONPATH=$HOME/Work/test-framework/src
-export LD_LIBRARY_PATH=$HOME/Work/TitanProcessing/bin:$HOME/Work/Ateme/x64-buster/bin
+export LD_LIBRARY_PATH=$HOME/Work/TitanProcessing/bin:$HOME/Work/Ateme/x64-buster-clang/bin
 export ANDROID_HOME=$HOME/Android/Sdk
 export HOSTALIASES=$HOME/.ssh/hosts
 
