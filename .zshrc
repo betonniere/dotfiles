@@ -90,6 +90,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export ATEMELIB=$HOME/Work/Ateme
+export ATEME_WORKSPACE=$HOME/Work/checkouts
 export ATEMENAME=yleroux
 export SCHROOT_CHROOT_IMAGE=buster-amd64-v3.tar.bz2
 #export SCHROOT_CHROOT_IMAGE=buster-clang-amd64-v3.tar.bz2
