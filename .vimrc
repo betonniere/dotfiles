@@ -243,7 +243,9 @@ let g:ale_open_list          = 1
 let g:ale_list_window_size   = 1
 let g:ale_sign_error         = '💣 '
 let g:ale_sign_warning       = '🚧 '
-let g:ale_linters= {'cpp': ['ccls', 'clangcheck', 'clangtidy', 'clazy', 'cppcheck', 'cpplint', 'cquery', 'flawfinder'], 'python': ['flake8', 'pylint', 'pyright']}
+let g:ale_linters= {'cpp': ['ccls', 'clangcheck', 'clangtidy', 'cppcheck', 'cpplint', 'flawfinder'], 'yaml': ['yamllint'], 'python': ['flake8', 'pylint', 'pyright']}
+"let g:ale_linters_ignore= {'cpp': ['clangtidy']}
+let g:ale_linters_explicit=1
 nnoremap <C-RightMouse> :ALEGoToDefinition -tab<CR>
 nnoremap <C-LeftMouse> :ALEGoToDefinition<CR>
 nmap gd :ALEGoToDefinition<CR>
