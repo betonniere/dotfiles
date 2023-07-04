@@ -109,6 +109,8 @@ elif [[ $(hostname) == "titan" ]]; then
    ICON="🛰️ "
 elif [[ $(hostname) == "yannick-Laptop" ]]; then
    ICON="🥾"
+elif [[ $(hostname) == "blue" ]]; then
+   ICON="🐦"
 else
    ICON="🚧"
 fi
