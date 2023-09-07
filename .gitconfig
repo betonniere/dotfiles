@@ -68,6 +68,7 @@
 
 [push]
   default = simple
+  autoSetupRemote = true
 
 [rebase]
   autosquash = true
@@ -77,6 +78,9 @@
 
 [fetch]
   prune = true
+
+[advice]
+  detachedHead = false
 
 [includeIf "gitdir:~/Work/"]
   path = ~/Work/.gitconfig
