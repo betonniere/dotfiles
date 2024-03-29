@@ -15,5 +15,8 @@
     "#PIPELINE_DEFAULT": "/home/yannick/pipeline.yaml",                        "#": "→ pipeline",
 
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/local/bin/nvim",
-    "vscode-neovim.logLevel": "none"
+    "vscode-neovim.logLevel": "none",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    }
 }
