@@ -81,6 +81,9 @@
 [advice]
   detachedHead = false
 
+[init]
+   defaultBranch = master
+
 [includeIf "gitdir:~/Work/"]
   path = ~/Work/.gitconfig
 [includeIf "gitdir:~/.config/"]
