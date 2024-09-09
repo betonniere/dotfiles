@@ -16,3 +16,6 @@
 [submodule ".vim/pack/git-plugins/start/tcomment_vim"]
 	path = .vim/pack/git-plugins/start/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
+[submodule ".vim/pack/git-plugins/start/fugitive"]
+	path = .vim/pack/git-plugins/start/fugitive
+	url = https://tpope.io/vim/fugitive.git
