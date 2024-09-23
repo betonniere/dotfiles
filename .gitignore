@@ -1,0 +1,8 @@
+*.swp
+*.swo
+*.pyc
+*.plist
+*.ap2
+*.glade~
+.clangd/
+.ccls-cache/

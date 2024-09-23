@@ -4,7 +4,7 @@
 
 [core]
   editor       = vim
-  excludesFile = ~/gitignore
+  excludesFile = ~/.gitignore
   #autocrlf = input
   #safecrlf = warn
 
