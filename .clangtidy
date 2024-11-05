@@ -1,0 +1,117 @@
+---
+Checks: >
+  *,
+  -altera-struct-pack-align,
+  -altera-unroll-loops,
+  -bugprone-reserved-identifier,
+  -cert-dcl37-c,
+  -cert-dcl51-cpp,
+  -cppcoreguidelines-avoid-c-arrays,
+  -cppcoreguidelines-avoid-magic-numbers,
+  -cppcoreguidelines-init-variables,
+  -cppcoreguidelines-non-private-member-variables-in-classes,
+  -cppcoreguidelines-pro-bounds-array-to-pointer-decay,
+  -cppcoreguidelines-pro-bounds-constant-array-index,
+  -cppcoreguidelines-pro-bounds-pointer-arithmetic,
+  -cppcoreguidelines-pro-type-member-init,
+  -cppcoreguidelines-pro-type-reinterpret-cast,
+  -cppcoreguidelines-pro-type-union-access,
+  -cppcoreguidelines-pro-type-vararg,
+  -cppcoreguidelines-slicing,
+  -cppcoreguidelines-special-member-functions,
+  -fuchsia-default-arguments-calls,
+  -fuchsia-default-arguments-declarations,
+  -fuchsia-multiple-inheritance,
+  -fuchsia-overloaded-operator,
+  -google-readability-braces-around-statements,
+  -google-readability-casting,
+  -google-readability-namespace-comments,
+  -google-runtime-references,
+  -hicpp-avoid-c-arrays,
+  -hicpp-braces-around-statements,
+  -hicpp-member-init,
+  -hicpp-no-array-decay,
+  -hicpp-special-member-functions,
+  -hicpp-use-auto,
+  -hicpp-vararg,
+  -llvm-else-after-return,
+  -llvm-header-guard,
+  -llvm-include-order,
+  -llvm-namespace-comment,
+  -llvmlibc-callee-namespace,
+  -llvmlibc-implementation-in-namespace,
+  -llvmlibc-restrict-system-libc-headers,
+  -misc-non-private-member-variables-in-classes,
+  -modernize-avoid-c-arrays,
+  -modernize-concat-nested-namespaces,
+  -modernize-use-auto,
+  -modernize-use-default-member-init,
+  -modernize-use-nodiscard,
+  -modernize-use-trailing-return-type,
+  -readability-avoid-const-params-in-decls,
+  -readability-braces-around-statements,
+  -readability-convert-member-functions-to-static,
+  -readability-else-after-return,
+  -readability-function-cognitive-complexity,
+  -readability-identifier-length,
+  -readability-implicit-bool-conversion,
+  -readability-magic-numbers,
+  -readability-redundant-access-specifiers
+
+# WarningsAsErrors: "*"
+
+CheckOptions:
+  - { key: readability-identifier-naming.AbstractClassCase,               value: CamelCase}
+  - { key: readability-identifier-naming.ClassCase,                       value: CamelCase}
+  - { key: readability-identifier-naming.ClassConstantCase,               value: CamelCase}
+  - { key: readability-identifier-naming.ClassMemberCase,                 value: UPPER_CASE}
+  - { key: readability-identifier-naming.ClassMethodCase,                 value: camelBack}
+  - { key: readability-identifier-naming.ConstantCase,                    value: CamelCase}
+  - { key: readability-identifier-naming.ConstantMemberCase,              value: CamelCase}
+  - { key: readability-identifier-naming.ConstantParameterCase,           value: camelBack}
+  - { key: readability-identifier-naming.ConstantPointerParameterCase,    value: camelBack}
+  - { key: readability-identifier-naming.ConstexprFunctionCase,           value: camelBack}
+  - { key: readability-identifier-naming.ConstexprMethodCase,             value: camelBack}
+  - { key: readability-identifier-naming.ConstexprVariableCase,           value: CamelCase}
+  - { key: readability-identifier-naming.EnumCase,                        value: CamelCase}
+  - { key: readability-identifier-naming.EnumConstantCase,                value: CamelCase}
+  - { key: readability-identifier-naming.FunctionCase,                    value: camelBack}
+  - { key: readability-identifier-naming.GlobalConstantCase,              value: CamelCase}
+  - { key: readability-identifier-naming.GlobalConstantPointerCase,       value: CamelCase}
+  - { key: readability-identifier-naming.GlobalFunctionCase,              value: camelBack}
+  - { key: readability-identifier-naming.GlobalPointerCase,               value: CamelCase}
+  - { key: readability-identifier-naming.GlobalVariableCase,              value: CamelCase}
+  - { key: readability-identifier-naming.NamespaceCase,                   value: CamelCase}
+  - { key: readability-identifier-naming.InlineNamespaceCase,             value: CamelCase}
+  - { key: readability-identifier-naming.LocalConstantCase,               value: camelBack}
+  - { key: readability-identifier-naming.LocalConstantPointerCase,        value: camelBack}
+  - { key: readability-identifier-naming.LocalPointerCase,                value: camelBack}
+  - { key: readability-identifier-naming.LocalVariableCase,               value: camelBack}
+  - { key: readability-identifier-naming.MemberCase,                      value: camelBack}
+  - { key: readability-identifier-naming.MethodCase,                      value: camelBack}
+  - { key: readability-identifier-naming.ParameterCase,                   value: camelBack}
+  - { key: readability-identifier-naming.ParameterPackCase,               value: camelBack}
+  - { key: readability-identifier-naming.PointerParameterCase,            value: camelBack}
+  - { key: readability-identifier-naming.PrivateMemberCase,               value: camelBack}
+  - { key: readability-identifier-naming.PrivateMemberPrefix,             value: m_}
+  - { key: readability-identifier-naming.PrivateMethodCase,               value: camelBack}
+  - { key: readability-identifier-naming.ProtectedMemberCase,             value: camelBack}
+  - { key: readability-identifier-naming.ProtectedMemberPrefix,           value: m_}
+  - { key: readability-identifier-naming.ProtectedMethodCase,             value: camelBack}
+  - { key: readability-identifier-naming.PublicMemberCase,                value: camelBack}
+  - { key: readability-identifier-naming.PublicMethodCase,                value: camelBack}
+  - { key: readability-identifier-naming.ScopedEnumConstantCase,          value: CamelCase}
+  - { key: readability-identifier-naming.StaticConstantCase,              value: CamelBack}
+  - { key: readability-identifier-naming.StaticVariableCase,              value: camelBack}
+  - { key: readability-identifier-naming.StructCase,                      value: CamelCase}
+  - { key: readability-identifier-naming.TemplateParameterCase,           value: camelBack}
+  - { key: readability-identifier-naming.TemplateTemplateParameterCase,   value: camelBack}
+  - { key: readability-identifier-naming.TypeAliasCase,                   value: CamelCase}
+  - { key: readability-identifier-naming.TypedefCase,                     value: CamelCase}
+  - { key: readability-identifier-naming.TypeTemplateParameterCase,       value: CamelCase}
+  - { key: readability-identifier-naming.UnionCase,                       value: CamelCase}
+  - { key: readability-identifier-naming.ValueTemplateParameterCase,      value: CamelCase}
+  - { key: readability-identifier-naming.VariableCase,                    value: camelBack}
+  - { key: readability-identifier-naming.VirtualMethodCase,               value: camelBack}
+
+  # - { key: readability-identifier-naming.MacroDefinitionCase,             value: UPPER_CASE}   Pb header guard
