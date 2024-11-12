@@ -245,8 +245,8 @@ let g:ale_sign_error         = '💣 '
 let g:ale_sign_warning       = '🚧 '
 let g:ale_cpp_clangtidy_extra_options = '--config-file=/home/yannick/.clangtidy'
 
-let g:ale_linters= {'cpp': ['ccls', 'clangcheck', 'clangtidy', 'cppcheck', 'cpplint', 'flawfinder'], 'yaml': ['yamllint'], 'python': ['flake8', 'pylint', 'pyright']}
-let g:ale_linters_ignore= {'cpp': ['flawfinder', 'cpplint', 'cppcheck', 'clangcheck']}
+let g:ale_linters= {'cpp': ['ccls', 'clangcheck', 'clangtidy', 'cppcheck', 'cpplint', 'flawfinder'], 'yaml': ['yamllint'], 'python': ['pylsp', 'flake8', 'pylint']}
+let g:ale_linters_ignore= {'cpp': ['clangtidy', 'flawfinder', 'cpplint', 'cppcheck', 'clangcheck']}
 "let g:ale_linters_explicit=1
 
 let g:ale_fixers = {'cpp': ['clang-format']}
