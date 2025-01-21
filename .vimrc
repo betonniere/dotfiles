@@ -3,8 +3,6 @@
 :set encoding=utf-8
 :set fileencoding=utf-8
 
-:let g:netrw_browsex_viewer= "gnome-open"
-
 "------------------------------------------------------------------------------------------
 set nobackup
 set modeline
@@ -14,15 +12,19 @@ set nocompatible
 set guitablabel=%m\ %t
 
 "------------------------------------------------------------------------------------------
+" netrw
+let g:netrw_browsex_viewer= "xdg-open"
+
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_preview = 1
+
+"------------------------------------------------------------------------------------------
 "man pages
 "runtime ftplugin/man.vim
 
 "------------------------------------------------------------------------------------------
 let mapleader = ","
-
-"------------------------------------------------------------------------------------------
-"Network utilities
-:let loaded_netrw = 1
 
 "------------------------------------------------------------------------------------------
 "Allow mouse on xterm
@@ -245,8 +247,8 @@ let g:ale_sign_error         = '💣 '
 let g:ale_sign_warning       = '🚧 '
 let g:ale_cpp_clangtidy_extra_options = '--config-file=/home/yannick/.clangtidy'
 
-let g:ale_linters= {'cpp': ['ccls', 'clangcheck', 'clangtidy', 'cppcheck', 'cpplint', 'flawfinder'], 'yaml': ['yamllint'], 'python': ['pylsp', 'flake8', 'pylint']}
-let g:ale_linters_ignore= {'cpp': ['clangtidy', 'flawfinder', 'cpplint', 'cppcheck', 'clangcheck']}
+let g:ale_linters= {'c': ['ccls'], 'cpp': ['ccls', 'clangtidy'], 'yaml': ['yamllint'], 'python': ['pylsp']}
+let g:ale_linters_ignore= {'cpp': ['clangtidy']}
 "let g:ale_linters_explicit=1
 
 let g:ale_fixers = {'cpp': ['clang-format']}
