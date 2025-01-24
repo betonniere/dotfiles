@@ -1,5 +1,6 @@
 *.swp
 *.swo
+*.swn
 *.pyc
 *.plist
 *.ap2
