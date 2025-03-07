@@ -42,7 +42,19 @@ set nowrap
 
 "------------------------------------------------------------------------------------------
 "Open .cpp's .hpp in a left pane
-map <F7> :vs %:p:s,.h$,.X123X,:s,.cpp$,.hpp,:s,.X123X$,.cpp,<CR>
+function! OpenHeaderFile()
+    let l:current_file = expand('%:p:r')
+
+    if filereadable(l:current_file . '.hpp')
+        execute 'vs ' . l:current_file . '.hpp'
+    elseif filereadable(l:current_file . '.h')
+        execute 'vs ' . l:current_file . '.h'
+    else
+        echo "Aucun fichier .hpp ou .h trouvé."
+    endif
+endfunction
+
+nnoremap <F7> :call OpenHeaderFile()<CR>
 
 "------------------------------------------------------------------------------------------
 "open new file from the same directory
@@ -94,7 +106,6 @@ augroup END
 
 "------------------------------------------------------------------------------------------
 filetype plugin indent on
-filetype plugin on
 
 "------------------------------------------------------------------------------------------
 "function parameters alignment
@@ -114,7 +125,7 @@ set imdisable
 set virtualedit=all
 
 "------------------------------------------------------------------------------------------
-map <Leader>g [I
+nnoremap <Leader>g [I
 
 "------------------------------------------------------------------------------------------
 "Case matching
