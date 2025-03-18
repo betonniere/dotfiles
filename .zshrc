@@ -60,6 +60,7 @@ plugins+=(history)
 plugins+=(zsh-navigation-tools)
 plugins+=(colored-man-pages)
 plugins+=(git-open)
+plugins+=(command-not-found)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -95,5 +96,6 @@ export ATEMENAME=yleroux
 export LD_LIBRARY_PATH=$HOME/Work/TitanProcessing/bin:$HOME/Work/Ateme/x64-bookworm/bin
 export ANDROID_HOME=$HOME/Android/Sdk
 export HOSTALIASES=$HOME/.ssh/hosts
+export PICO_SDK_PATH=$HOME/Perso/pico-sdk
 
 path[1,0]=($HOME/.local/bin $ANDROID_HOME/platform-tools)
