@@ -7,3 +7,4 @@
 *.glade~
 .clangd/
 .ccls-cache/
+.idea/
