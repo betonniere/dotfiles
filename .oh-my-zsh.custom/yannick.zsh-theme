@@ -113,6 +113,8 @@ elif [[ $(hostname) == "blue" ]]; then
    ICON="🐦"
 elif [[ $(hostname) == "raspberrypi" ]]; then
    ICON="🍓"
+elif [[ $(hostname) == "dartboard" ]]; then
+   ICON="🎯"
 else
    ICON="🚧"
 fi
