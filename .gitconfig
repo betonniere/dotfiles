@@ -20,7 +20,7 @@
   dtx   = "!f() { git dt \"$1^\" \"$1\"; }; f"
   mt    = mergetool
   dno   = diff --name-only
-  sno   = show --name-only
+  sno   = diff-tree --no-commit-id --name-only -r
   ls    = ls-files
   ts    = tag --sort=-v:refname
   #lg  = log --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
