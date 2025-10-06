@@ -257,8 +257,12 @@ let g:ale_list_window_size   = 1
 let g:ale_sign_error         = '💣 '
 let g:ale_sign_warning       = '🚧 '
 let g:ale_cpp_clangtidy_extra_options = '--config-file=/home/yannick/.clangtidy'
-
-let g:ale_linters= {'c': ['ccls'], 'cpp': ['ccls', 'clangtidy'], 'yaml': ['yamllint'], 'python': ['pylsp']}
+let g:ale_python_flake8_options = '--config /home/yannick/.flake8'
+let g:ale_linters= {
+         \ 'c': ['ccls', 'iwyu'],
+         \ 'cpp': ['ccls', 'clangtidy', 'iwyu'],
+         \ 'yaml': ['yamllint'],
+         \ 'python': ['flake8', 'pylsp']}
 let g:ale_linters_ignore= {'cpp': ['clangtidy']}
 "let g:ale_linters_explicit=1
 
