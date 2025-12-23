@@ -93,7 +93,7 @@ source $ZSH/oh-my-zsh.sh
 export ATEMELIB=$HOME/Work/Ateme
 export ATEME_WORKSPACE=$HOME/Work/checkouts
 export ATEMENAME=yleroux
-export LD_LIBRARY_PATH=$HOME/Work/TitanProcessing/bin:$HOME/Work/Ateme/x64-bookworm/bin
+export LD_LIBRARY_PATH=/usr/lib/clang/18/lib/linux:$HOME/Work/TitanProcessing/bin:$HOME/Work/Ateme/x64-bookworm/bin
 export ANDROID_HOME=$HOME/Android/Sdk
 export HOSTALIASES=$HOME/.ssh/hosts
 export PICO_SDK_PATH=$HOME/Perso/pico-sdk
