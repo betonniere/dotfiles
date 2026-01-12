@@ -262,7 +262,7 @@ let g:ale_linters= {
          \ 'c': ['ccls', 'iwyu'],
          \ 'cpp': ['ccls', 'clangtidy', 'iwyu'],
          \ 'yaml': ['yamllint'],
-         \ 'python': ['flake8', 'pylsp']}
+         \ 'python': ['flake8', 'pylspiii']}
 let g:ale_linters_ignore= {'cpp': ['clangtidy']}
 "let g:ale_linters_explicit=1
 
@@ -272,8 +272,8 @@ let g:ale_fix_on_save = 1
 nnoremap <C-RightMouse> :ALEGoToDefinition -tab<CR>
 nnoremap <C-LeftMouse> :ALEGoToDefinition<CR>
 nmap gd :ALEGoToDefinition<CR>
-nmap gt :ALEGoToDefinition -tab<CR>
 nmap gr :ALEFindReferences<CR>
+nmap K :ALEHover<CR>
 
 "
 set noendofline
