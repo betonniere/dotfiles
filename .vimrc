@@ -1,50 +1,66 @@
+"------------------------------------------------------------------------------------------
+" Configuration de la police pour l'interface graphique (GUI)
+" Choix entre Courier 10 Pitch ou Monospace 10 (commenté)
 ":set guifont=Courier\ 10\ Pitch
 ":set guifont=Monospace\ 10
+
+" Encodage par défaut pour les fichiers et l'interface
+" UTF-8 pour une compatibilité maximale (caractères spéciaux, C++20, etc.)
 :set encoding=utf-8
 :set fileencoding=utf-8
 
 "------------------------------------------------------------------------------------------
-set nobackup
-set modeline
-set nocompatible
+" Options générales de Vim
+set nobackup          " Désactive la création de fichiers de backup (~)
+set modeline          " Autorise les modelines (configuration par fichier)
+set nocompatible      " Désactive la compatibilité avec vi (comportement moderne)
 
 "------------------------------------------------------------------------------------------
+" Autoriser les fichiers .vimrc locaux (pour les projets)
+" Utile pour adapter Vim à un projet spécifique (ex: règles de style C++)
+set exrc
+set secure            " Limite les risques de sécurité avec les fichiers locaux
+
+"------------------------------------------------------------------------------------------
+" Configuration des onglets dans l'interface graphique
+" Affiche le nom du fichier et un indicateur de modification
 set guitablabel=%m\ %t
 
 "------------------------------------------------------------------------------------------
-" netrw
+" Configuration de netrw (explorateur de fichiers intégré)
+" Ouvre les fichiers avec xdg-open (Linux)
 let g:netrw_browsex_viewer= "xdg-open"
-
-let g:netrw_liststyle = 3
-let g:netrw_banner = 0
-let g:netrw_preview = 1
-
-"------------------------------------------------------------------------------------------
-"man pages
-"runtime ftplugin/man.vim
+let g:netrw_liststyle = 3  " Style de liste (arbre)
+let g:netrw_banner = 0     " Désactive la bannière
+let g:netrw_preview = 1    " Active l'aperçu des fichiers
 
 "------------------------------------------------------------------------------------------
+" Configuration pour les pages de manuel (man)
+"runtime ftplugin/man.vim  " Décommenter si besoin de support avancé pour les man
+
+"------------------------------------------------------------------------------------------
+" Définition de la touche leader (ici ',')
 let mapleader = ","
 
 "------------------------------------------------------------------------------------------
-"Allow mouse on xterm
+" Activation de la souris (utile en mode graphique ou terminal moderne)
 set mouse=a
 
 "------------------------------------------------------------------------------------------
-"Display as much as possible the last line and hex code of unprintable char
+" Affichage amélioré de la dernière ligne et des caractères non imprimables
 set display=lastline,uhex
 
 "------------------------------------------------------------------------------------------
-" wrap
-set sidescroll=5
-set listchars=precedes:<,extends:>
-set nowrap
+" Configuration du défilement et de l'affichage
+set sidescroll=5     " Défilement horizontal par 5 colonnes
+set listchars=precedes:<,extends:>  " Caractères pour les lignes longues
+set nowrap            " Désactive le retour à la ligne automatique
 
 "------------------------------------------------------------------------------------------
-"Open .cpp's .hpp in a left pane
+" Fonction pour ouvrir le fichier d'en-tête (.hpp ou .h) associé à un .cpp
+" Utile pour le développement C++ (GTK3, traitement du signal, etc.)
 function! OpenHeaderFile()
     let l:current_file = expand('%:p:r')
-
     if filereadable(l:current_file . '.hpp')
         execute 'vs ' . l:current_file . '.hpp'
     elseif filereadable(l:current_file . '.h')
@@ -53,26 +69,29 @@ function! OpenHeaderFile()
         echo "Aucun fichier .hpp ou .h trouvé."
     endif
 endfunction
-
+" Mapping sur F7 pour un accès rapide
 nnoremap <F7> :call OpenHeaderFile()<CR>
 
 "------------------------------------------------------------------------------------------
-"open new file from the same directory
+" Ouverture rapide de fichiers dans le même répertoire que le fichier courant
+" Utile pour naviguer dans les projets C++/GTK3
 if has("unix")
     map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 else
     map <Leader>e :e <C-R>=expand("%:p:h") . "\" <CR>
 endif
+" Changement de répertoire courant vers celui du fichier
 map <Leader>cd :cd <C-R>=expand("%:p:h") <CR>
 
 "------------------------------------------------------------------------------------------
-"grep
+" Fonction de recherche avancée (grep) dans les fichiers C++/C
+" fgc: recherche dans les .cpp/.c
+" fgh: recherche dans les .hpp/.h
+" fgall: recherche dans tous les fichiers
 function! Grep(target, exp)
   let l:cmd = "cd " . expand("%:p:h")
   exe l:cmd
-
-  copen
-
+  copen  " Ouvre la fenêtre de résultats
   if a:target == "fgc"
     let l:cmd = "vimgrep " . a:exp . " *.cpp *.c"
   elseif a:target == "fgh"
@@ -80,10 +99,9 @@ function! Grep(target, exp)
   elseif a:target == "fgall"
     let l:cmd = "vimgrep " . a:exp . " *"
   endif
-
   exe l:cmd
 endfunction
-
+" Commandes et mappings associés
 cab fgc   Fgc
 cab fgh   Fgh
 cab fgall Fgall
@@ -92,7 +110,8 @@ command -nargs=1 Fgh   call Grep("fgh", <f-args>)
 command -nargs=1 Fgall call Grep("fgall", <f-args>)
 
 "------------------------------------------------------------------------------------------
-" vim -b : edit binary using xxd-format!
+" Configuration pour l'édition de fichiers binaires (ex: .bin, .ttf)
+" Utilise xxd pour afficher/modifier en hexadécimal
 augroup Binary
   au!
   au BufReadPre   *.bin,*ttf,*TTF let &bin=1
@@ -105,61 +124,66 @@ augroup Binary
 augroup END
 
 "------------------------------------------------------------------------------------------
+" Activation des plugins et de l'indentation automatique
 filetype plugin indent on
 
 "------------------------------------------------------------------------------------------
-"function parameters alignment
+" Configuration de l'indentation pour le C++ (style personnel)
+" Alignement des paramètres de fonction
 set cinoptions=(0,w1=0
 
 "------------------------------------------------------------------------------------------
+" Configuration spécifique pour les terminaux xterm
 if $TERM=="xterm"
-"  set guioptions-=T
+"  set guioptions-=T  " Décommenter si besoin de désactiver la toolbar
 endif
-set guioptions+=b
+set guioptions+=b     " Ajoute la barre de défilement verticale
 
 "------------------------------------------------------------------------------------------
-"No XIM
+" Désactive XIM (Input Method) pour éviter les conflits avec la saisie
 set imdisable
 
 "------------------------------------------------------------------------------------------
+" Permet l'édition en mode virtuel (au-delà de la fin de ligne)
 set virtualedit=all
 
 "------------------------------------------------------------------------------------------
+" Mapping pour répéter la dernière modification (comme en mode normal)
 nnoremap <Leader>g [I
 
 "------------------------------------------------------------------------------------------
-"Case matching
+" Recherche intelligente (ignore la casse sauf si majuscules présentes)
 set ignorecase smartcase
 
 "------------------------------------------------------------------------------------------
-"delete line
+" Suppression d'une ligne avec la touche Del
 nmap <Del> dd
 
 "------------------------------------------------------------------------------------------
-"Tab and trailing spaces
+" Affichage des tabulations et espaces de fin de ligne
 set list
 set listchars+=tab:>.,trail:.
 
 "------------------------------------------------------------------------------------------
-"mark
+" Configuration des marques (a-z, A-Z)
 let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 "------------------------------------------------------------------------------------------
-"gdb
+" Configuration pour le débogage avec GDB (si Vim >= 8.0)
 if v:version >= 800
   :packadd termdebug
 endif
 
 "------------------------------------------------------------------------------------------
-" redraw current at window top    ==> F1
-" redraw current at window center ==> F2
-" redraw current at window bottom ==> F3
+" Mappings pour repositionner la ligne courante
+" F1: en haut de la fenêtre, F2: au centre, F3: en bas
 nmap <F1> z<CR>
 nmap <F2> z.
 nmap <F3> z-
 
 "------------------------------------------------------------------------------------------
-" Runtime Macro
+" Mappings pour exécuter des macros (F4 à F12)
+" Utile pour automatiser des tâches répétitives (ex: génération de fenêtres de Hann)
 nmap <F4>  @a
 nmap <F9>  @b
 nmap <F10> @c
@@ -167,7 +191,7 @@ nmap <F11> @d
 nmap <F12> @e
 
 "------------------------------------------------------------------------------------------
-" Toggle line numbering ==> F5
+" Fonction pour basculer l'affichage des numéros de ligne (F5)
 function! ToggleLineNumbering ()
   if &nu
     set nonu
@@ -175,11 +199,11 @@ function! ToggleLineNumbering ()
     set nu
   endif
 endfun
-
 nmap <F5> :call ToggleLineNumbering ()<CR>
 
 "------------------------------------------------------------------------------------------
-" hexadecimal 2 decimal ==> F6
+" Conversion hexadécimal ↔ décimal (F6)
+" Utile pour le traitement du signal ou l'analyse binaire
 command! -nargs=? -range H2D call s:H2D(<line1>, <line2>, '<args>')
 function! s:H2D(line1, line2, arg) range
   if empty(a:arg)
@@ -198,8 +222,6 @@ function! s:H2D(line1, line2, arg) range
   endif
 endfunction
 
-"------------------------------------------------------------------------------------------
-" decimal 2 hexadecimal ==> F6
 command! -nargs=? -range D2H call s:D2H(<line1>, <line2>, '<args>')
 function! s:D2H(line1, line2, arg) range
   if empty(a:arg)
@@ -219,62 +241,76 @@ function! s:D2H(line1, line2, arg) range
 endfunction
 
 "------------------------------------------------------------------------------------------
-" .
-nmap ; .
-vnoremap ; :normal .<CR> 
+" Répète la dernière commande en mode normal (.) avec ';'
+nnoremap ; .
+vnoremap ; :normal .<CR>
 
 "------------------------------------------------------------------------------------------
-" Search
+" Configuration de la recherche
+" Mise en évidence des résultats et recherche incrémentale
 highlight IncSearch ctermfg=green ctermbg=blue guifg=green guibg=blue
 set hlsearch
 set incsearch
 
 "------------------------------------------------------------------------------------------
-" CTRL T
-"set highlight=8r,db,es,hs,mb,Mr,nb,rs,sr,tb,vr,wi
-set expandtab     "Tab == space
-set tabstop=2
-set shiftwidth=3  "Number of spaces to use for each step of (auto)indent"
+" Configuration des tabulations et espaces
+" Remplace les tabulations par des espaces (style flake8)
+set expandtab
+set tabstop=2     " 2 espaces pour une tabulation
+set shiftwidth=3  " 3 espaces pour l'indentation automatique
 
 "------------------------------------------------------------------------------------------
-"jumps to the last known position in a file
+" Retour à la dernière position connue dans un fichier
 autocmd BufReadPost * if line("'\"") | exe "normal '\"" | endif
 
+" Thème de couleurs (morning)
 colorscheme morning
 
-"- Airline --------------------------------------------------------------------------------
-let g:airline#extensions#ale#enabled    = 1
-let g:airline#extensions#branch#enabled = 1
-let g:airline_theme           = 'wombat'
-let g:airline_powerline_fonts = 1
+"------------------------------------------------------------------------------------------
+" Configuration d'Airline (barre de statut)
+let g:airline#extensions#ale#enabled    = 1  " Intégration avec ALE
+let g:airline#extensions#branch#enabled = 1  " Affiche la branche git
+let g:airline_theme           = 'wombat'     " Thème sombre
+let g:airline_powerline_fonts = 1            " Utilise les polices Powerline
 
-"- Ale ------------------------------------------------------------------------------------
+"------------------------------------------------------------------------------------------
+" Configuration d'ALE (linting et correction automatique)
+" Intégration avec clang-tidy, flake8, etc.
 let g:ale_enabled            = 1
-let g:ale_lint_on_enter      = 1
-let g:ale_completion_enabled = 1
-let g:ale_open_list          = 1
-let g:ale_list_window_size   = 1
-let g:ale_sign_error         = '💣 '
-let g:ale_sign_warning       = '🚧 '
+let g:ale_lint_on_enter      = 1      " Vérification au chargement
+let g:ale_completion_enabled = 1      " Complétion intelligente
+let g:ale_open_list          = 1      " Liste des erreurs ouverte
+let g:ale_list_window_size   = 1      " Taille de la fenêtre de liste
+let g:ale_sign_error         = '💣 '  " Icône pour les erreurs
+let g:ale_sign_warning       = '🚧 '  " Icône pour les avertissements
+
+" Configuration spécifique pour C++ (clang-tidy, iwyu)
 let g:ale_cpp_clangtidy_extra_options = '--config-file=/home/yannick/.clangtidy'
+" Configuration pour Python (flake8)
 let g:ale_python_flake8_options = '--config /home/yannick/.flake8'
+
+" Liste des linters par type de fichier
 let g:ale_linters= {
          \ 'c': ['ccls', 'iwyu'],
          \ 'cpp': ['ccls', 'clangtidy', 'iwyu'],
          \ 'yaml': ['yamllint'],
-         \ 'python': ['flake8', 'pylspiii']}
+         \ 'python': ['flake8', 'pylsp']}
+" Ignore clang-tidy pour C++ (si trop strict)
 let g:ale_linters_ignore= {'cpp': ['clangtidy']}
-"let g:ale_linters_explicit=1
 
+" Correction automatique au sauvegarde (clang-format pour C++)
 let g:ale_fixers = {'cpp': ['clang-format']}
 let g:ale_fix_on_save = 1
 
+" Mappings pour la navigation et l'inspection de code
 nnoremap <C-RightMouse> :ALEGoToDefinition -tab<CR>
 nnoremap <C-LeftMouse> :ALEGoToDefinition<CR>
 nmap gd :ALEGoToDefinition<CR>
 nmap gr :ALEFindReferences<CR>
 nmap K :ALEHover<CR>
 
-"
+"------------------------------------------------------------------------------------------
+" Désactive l'ajout automatique de newline en fin de fichier
+" Utile pour éviter les conflits avec git ou les outils de build
 set noendofline
 set nofixendofline

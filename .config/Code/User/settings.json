@@ -18,5 +18,6 @@
     "vscode-neovim.logLevel": "none",
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
-    }
+    },
+    "editor.minimap.enabled": false
 }

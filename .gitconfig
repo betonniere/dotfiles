@@ -32,9 +32,10 @@
   r1    = reset --hard HEAD^
   hist  = reflog show
   stamp = commit --amend --reset-author --no-edit
-  assume    = update-index --assume-unchanged
-  no-assume = update-index --no-assume-unchanged
-  assumed   = !git ls-files -v | grep "^[[:lower:]]"
+
+  skip    = update-index --skip-worktree
+  no-skip = update-index --no-skip-worktree
+  skipped = !git ls-files -v | grep "^S "
 
 [branch]
   autosetupmerge  = always
