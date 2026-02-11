@@ -202,6 +202,10 @@ endfun
 nmap <F5> :call ToggleLineNumbering ()<CR>
 
 "------------------------------------------------------------------------------------------
+" Définitions des couleurs ANSI pour les scripts C/C++
+iabbrev ccolors #define RED "\033[1;31m"<cr>#define GREEN "\033[1;32m"<cr>#define YELLOW "\033[1;33m"<cr>#define BLUE "\033[1;34m"<cr>#define MAGENTA "\033[1;35m"<cr>#define CYAN "\033[1;36m"<cr>#define WHITE "\033[0m"
+
+"------------------------------------------------------------------------------------------
 " Conversion hexadécimal ↔ décimal (F6)
 " Utile pour le traitement du signal ou l'analyse binaire
 command! -nargs=? -range H2D call s:H2D(<line1>, <line2>, '<args>')
