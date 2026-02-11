@@ -17,7 +17,7 @@
   st    = status
   rem   = remote -v
   dt    = difftool
-  dtx   = "!f() { git dt \"$1^\" \"$1\"; }; f"
+  dtx   = "!f() { git dt --dir-diff \"$1\"^!; }; f"
   mt    = mergetool
   dno   = diff --name-only
   sno   = diff-tree --no-commit-id --name-only -r
