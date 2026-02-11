@@ -16,10 +16,8 @@ set modeline          " Autorise les modelines (configuration par fichier)
 set nocompatible      " Désactive la compatibilité avec vi (comportement moderne)
 
 "------------------------------------------------------------------------------------------
-" Autoriser les fichiers .vimrc locaux (pour les projets)
-" Utile pour adapter Vim à un projet spécifique (ex: règles de style C++)
-set exrc
-set secure            " Limite les risques de sécurité avec les fichiers locaux
+" Sécurise le chargement des fichiers .vimrc locaux (pour les projets)
+set secure
 
 "------------------------------------------------------------------------------------------
 " Configuration des onglets dans l'interface graphique

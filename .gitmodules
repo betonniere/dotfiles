@@ -22,3 +22,6 @@
 [submodule ".vim/pack/git-plugins/start/copilot.vim"]
 	path = .vim/pack/git-plugins/start/copilot.vim
 	url = https://github.com/github/copilot.vim
+[submodule ".vim/pack/git-plugins/start/vim-localrc"]
+	path = .vim/pack/git-plugins/start/vim-localrc
+	url = https://github.com/thinca/vim-localrc.git
