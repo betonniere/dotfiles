@@ -10,9 +10,6 @@
 [submodule ".oh-my-zsh.custom/plugins/git-open"]
 	path = .oh-my-zsh.custom/plugins/git-open
 	url = https://github.com/paulirish/git-open.git
-[submodule ".oh-my-zsh.custom/zsh-git-prompt"]
-	path = .oh-my-zsh.custom/zsh-git-prompt
-	url = https://github.com/olivierverdier/zsh-git-prompt.git
 [submodule ".vim/pack/git-plugins/start/tcomment_vim"]
 	path = .vim/pack/git-plugins/start/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
