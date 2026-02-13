@@ -1,4 +1,12 @@
-# Détection de l'icône selon le hostname
+#
+# Configuration
+#
+HIST_IGNORE_SPACE="true"
+HIST_IGNORE_DUPS="true"
+
+#
+# starship ignation
+#
 case $(hostname) in
     megumi) ICON="🍎" ;;
     misaki) ICON="🍉" ;;
@@ -12,7 +20,6 @@ case $(hostname) in
     *) ICON="🚧" ;;
 esac
 
-# On exporte l'icône pour que Starship puisse la lire
 export MY_HOST_ICON=$ICON
 
 eval "$(starship init zsh)"

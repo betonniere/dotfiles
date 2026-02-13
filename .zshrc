@@ -60,6 +60,8 @@ plugins+=(history)
 plugins+=(zsh-navigation-tools)
 plugins+=(colored-man-pages)
 plugins+=(git-open)
+plugins+=(zsh-syntax-highlighting)
+plugins+=(zsh-autosuggestions)
 plugins+=(command-not-found)
 
 source $ZSH/oh-my-zsh.sh
