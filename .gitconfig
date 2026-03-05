@@ -26,8 +26,15 @@
   #lg  = log --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
   lg    = log --graph --pretty=format:'%Cred%h%Creset %G?%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
   lga   = log --graph --pretty=format:'%Cred%h%Creset %G?%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all
-  lo    = log --graph --oneline
-  la    = log --graph --oneline --all
+   lo = "!f() { \
+        REMOTE_URL=$(git config --get remote.origin.url | sed -E 's|git@([^:]+):|https://\\1/|;s|\\.git$||'); \
+        git log --graph --oneline --decorate --color=always \"$@\" | \
+        sed -E \"s|origin/merge-requests/([0-9]*)|${REMOTE_URL}/-/merge_requests/\\1|g\" | \
+        less -R; \
+    }; f"
+  la    = lo --all
+  lx    = log --graph --oneline
+  lxa   = lx --all
   lf    = log --pretty=fuller
   r1    = reset --hard HEAD^
   hist  = reflog show
