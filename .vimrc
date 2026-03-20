@@ -312,7 +312,6 @@ nmap gr :ALEFindReferences<CR>
 nmap K :ALEHover<CR>
 
 "------------------------------------------------------------------------------------------
-" Désactive l'ajout automatique de newline en fin de fichier
+" Problématique du newline en fin de fichier
 " Utile pour éviter les conflits avec git ou les outils de build
-set noendofline
 set nofixendofline
