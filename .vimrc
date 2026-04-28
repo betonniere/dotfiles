@@ -286,19 +286,26 @@ let g:ale_list_window_size   = 1      " Taille de la fenêtre de liste
 let g:ale_sign_error         = '💣 '  " Icône pour les erreurs
 let g:ale_sign_warning       = '🚧 '  " Icône pour les avertissements
 
-" Configuration spécifique pour C++ (clang-tidy, iwyu)
+" Configuration spécifique pour C++ (clang-tidy)
 let g:ale_cpp_clangtidy_extra_options = '--config-file=/home/yannick/.clangtidy'
 " Configuration pour Python (flake8)
 let g:ale_python_flake8_options = '--config /home/yannick/.flake8'
+" Configuration pour cppcheck (analyse statique C++)
+let g:ale_c_build_dir_names = []
+let g:ale_c_build_dir = ''
+let g:ale_cpp_cppcheck_use_makefile = 0
+let g:ale_cpp_cppcheck_use_compile_commands = 0
+let g:ale_cpp_cppcheck_options = '--std=c++20 --enable=all'
 
 " Liste des linters par type de fichier
 let g:ale_linters= {
+         \ 'markdown': ['mdl'],
          \ 'c': ['ccls', 'iwyu'],
-         \ 'cpp': ['ccls', 'clangtidy', 'iwyu'],
+         \ 'cpp': ['ccls', 'clangtidy', 'iwyu', 'cppcheck'],
          \ 'yaml': ['yamllint'],
          \ 'python': ['flake8', 'pylsp']}
 " Ignore clang-tidy pour C++ (si trop strict)
-let g:ale_linters_ignore= {'cpp': ['clangtidy']}
+let g:ale_linters_ignore= {'cpp': ['clangtidy', 'cppcheck']}
 
 " Correction automatique au sauvegarde (clang-format pour C++)
 let g:ale_fixers = {'cpp': ['clang-format']}
