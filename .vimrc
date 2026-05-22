@@ -297,18 +297,21 @@ let g:ale_cpp_cppcheck_use_makefile = 0
 let g:ale_cpp_cppcheck_use_compile_commands = 0
 let g:ale_cpp_cppcheck_options = '--std=c++20 --enable=all'
 
+" Configuration pour ruff (linting et formatage Python)
+let g:ale_python_ruff_format_options = '--config=' . ale#path#FindNearestFile(bufnr(''), 'ruff.toml')
+
 " Liste des linters par type de fichier
 let g:ale_linters= {
          \ 'markdown': ['mdl'],
          \ 'c': ['ccls', 'iwyu'],
          \ 'cpp': ['ccls', 'clangtidy', 'iwyu', 'cppcheck'],
          \ 'yaml': ['yamllint'],
-         \ 'python': ['flake8', 'pylsp']}
+         \ 'python': ['pylsp', 'ruff']}
 " Ignore clang-tidy pour C++ (si trop strict)
 let g:ale_linters_ignore= {'cpp': ['clangtidy', 'cppcheck']}
 
 " Correction automatique au sauvegarde (clang-format pour C++)
-let g:ale_fixers = {'cpp': ['clang-format']}
+let g:ale_fixers = {'cpp': ['clang-format'], 'python': ['ruff_format']}
 let g:ale_fix_on_save = 1
 
 " Mappings pour la navigation et l'inspection de code
