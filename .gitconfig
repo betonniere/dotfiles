@@ -1,101 +1,104 @@
 [user]
-  email = y.leroux@ateme.com
-  name = Yannick Le Roux
+   email = y.leroux@ateme.com
+   name = Yannick Le Roux
 
 [core]
-  editor       = vim
-  excludesFile = ~/.gitignore
+   editor       = vim
+   excludesFile = ~/.gitignore
   #autocrlf = input
   #safecrlf = warn
 
 [color]
-  ui = auto
+   ui = auto
 
 [alias]
-  co    = checkout
-  ci    = commit
-  st    = status
-  rem   = remote -v
-  dt    = difftool
-  dtx   = "!f() { git dt --dir-diff \"$1\"^ \"$1\"; }; f"
-  mt    = mergetool
-  dno   = diff --name-only
-  sno   = diff-tree --no-commit-id --name-only -r
-  ls    = ls-files
-  ts    = tag --sort=-v:refname
+   co    = checkout
+   ci    = commit
+   st    = status
+   rem   = remote -v
+   dt    = difftool
+   dtx   = "!f() { git dt --dir-diff \"$1\"^ \"$1\"; }; f"
+   mt    = mergetool
+   dno   = diff --name-only
+   sno   = diff-tree --no-commit-id --name-only -r
+   ls    = ls-files
+   ts    = tag --sort=-v:refname
   #lg  = log --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-  lg    = log --graph --pretty=format:'%Cred%h%Creset %G?%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-  lga   = log --graph --pretty=format:'%Cred%h%Creset %G?%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all
+   lg    = log --graph --pretty=format:'%Cred%h%Creset %G?%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+   lga   = log --graph --pretty=format:'%Cred%h%Creset %G?%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all
    lo = "!f() { \
-        REMOTE_URL=$(git config --get remote.origin.url | sed -E 's|git@([^:]+):|https://\\1/|;s|\\.git$||'); \
-        git log --graph --oneline --decorate --color=always \"$@\" | \
-        sed -E \"s|origin/merge-requests/([0-9]*)|${REMOTE_URL}/-/merge_requests/\\1|g\" | \
-        less -R; \
-    }; f"
-  la    = lo --all
-  lx    = log --graph --oneline
-  lxa   = lx --all
-  lf    = log --pretty=fuller
-  r1    = reset --hard HEAD^
-  hist  = reflog show
-  stamp = commit --amend --reset-author --no-edit
+      REMOTE_URL=$(git config --get remote.origin.url | sed -E 's|git@([^:]+):|https://\\1/|;s|\\.git$||'); \
+      cd \"${GIT_PREFIX:-.}\" && git log --graph --oneline --decorate --color=always \"$@\" | \
+      sed -E \"s|origin/merge-requests/([0-9]*)|${REMOTE_URL}/-/merge_requests/\\1|g\" | \
+      less -R; \
+      }; f"
+   la    = lo --all
+   lx    = log --graph --oneline
+   lxa   = lx --all
+   lf    = log --pretty=fuller
+   r1    = reset --hard HEAD^
+   hist  = reflog show
+   stamp = commit --amend --reset-author --no-edit
 
-  skip    = update-index --skip-worktree
-  no-skip = update-index --no-skip-worktree
-  skipped = !git ls-files -v | grep "^S "
+   skip    = update-index --skip-worktree
+   no-skip = update-index --no-skip-worktree
+   skipped = !git ls-files -v | grep "^S "
 
 [branch]
-  autosetupmerge  = always
-  autosetuprebase = always
+   autosetupmerge  = always
+   autosetuprebase = always
 
 [diff]
-  tool = meld
-  mnemonicPrefix = true
+   tool = meld
+   mnemonicPrefix = true
 
 [difftool]
-  prompt = false
+   prompt = false
 
 [difftool "meld"]
-  cmd = meld "$LOCAL" "$REMOTE"
+   cmd = meld "$LOCAL" "$REMOTE"
 
 [merge]
-  tool = meld
-  log  = 20
-  ff   = false
+   tool = meld
+   log  = 20
+   ff   = false
 
 [mergetool]
-  prompt     = false
-  keepBackup = false
+   prompt     = false
+   keepBackup = false
 
 [mergetool "meld"]
-  cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+   cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 
 [pull]
-  rebase = true
+   rebase = true
 
 [push]
-  default = simple
-  autoSetupRemote = true
+   default = simple
+   autoSetupRemote = true
 
 [rebase]
-  autosquash = true
+   autosquash = true
 
 [status]
-  submoduleSummary = false
+   submoduleSummary = false
 
 [fetch]
-  prune = true
+   prune = true
 
 [advice]
-  detachedHead = false
-  skippedCherryPicks = false
+   detachedHead = false
+   skippedCherryPicks = false
 
 [init]
    defaultBranch = master
 
+[remote "origin"]
+   fetch = +refs/merge-requests/*/head:refs/remotes/origin/merge-requests/*
+
 [includeIf "gitdir:~/Work/"]
-  path = ~/Work/.gitconfig
+   path = ~/Work/.gitconfig
 [includeIf "gitdir:~/.config/"]
-  path = ~/Perso/.gitconfig
+   path = ~/Perso/.gitconfig
 [includeIf "gitdir:~/Perso/"]
-  path = ~/Perso/.gitconfig
+   path = ~/Perso/.gitconfig
