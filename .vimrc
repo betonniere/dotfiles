@@ -82,6 +82,26 @@ endif
 map <Leader>cd :cd <C-R>=expand("%:p:h") <CR>
 
 "------------------------------------------------------------------------------------------
+" Ouverture d'un scratch buffer pour copilot danas un nouveau tab
+function! CopilotScratch()
+  execute 'tabnew copilot_scratch.' . expand('%:e')
+
+  setlocal buftype=nofile bufhidden=hide noswapfile
+
+  let b:ale_enabled = 0
+  let b:ale_lint_on_text_changed = 'never'
+  let b:ale_lint_on_insert_leave = 0
+
+  if &filetype != ''
+    execute 'setfiletype ' . &filetype
+  endif
+
+  execute 'read ~/.copilot.prompt'
+endfunction
+
+nnoremap <Leader>sc :call CopilotScratch()<CR>
+
+"------------------------------------------------------------------------------------------
 " Fonction de recherche avancée (grep) dans les fichiers C++/C
 " fgc: recherche dans les .cpp/.c
 " fgh: recherche dans les .hpp/.h
