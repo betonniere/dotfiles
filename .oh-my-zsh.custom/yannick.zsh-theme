@@ -14,6 +14,7 @@ case $(hostname) in
     frog)   ICON="🐸" ;;
     titan)  ICON="🛰️ " ;;
     blue)   ICON="🐦" ;;
+    surcouf) ICON="🍓" ;;
     raspberrypi) ICON="🍓" ;;
     dartboard)   ICON="🎯" ;;
     "RS-LPC144FR.corp.ateme.com") ICON="💻" ;;
