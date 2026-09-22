@@ -101,3 +101,11 @@ export HOSTALIASES=$HOME/.ssh/hosts
 export PICO_SDK_PATH=$HOME/Perso/pico-sdk
 
 path[1,0]=($HOME/.local/bin $ANDROID_HOME/platform-tools)
+
+git() {
+  if [ "$1" = "clean" ] && [[ "$*" == *"-fdx"* ]]; then
+    command git clean -fdx -e .codegraph "${@:2}"
+  else
+    command git "$@"
+  fi
+}

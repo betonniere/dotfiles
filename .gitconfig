@@ -96,6 +96,13 @@
 [remote "origin"]
    fetch = +refs/merge-requests/*/head:refs/remotes/origin/merge-requests/*
 
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+
 [includeIf "gitdir:~/Work/"]
    path = ~/Work/.gitconfig
 [includeIf "gitdir:~/.config/"]
