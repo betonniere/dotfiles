@@ -43,6 +43,7 @@
    skip    = update-index --skip-worktree
    no-skip = update-index --no-skip-worktree
    skipped = !git ls-files -v | grep "^S "
+   purge = clean -fdx -e .codegraph
 
 [branch]
    autosetupmerge  = always
